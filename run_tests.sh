@@ -1,20 +1,34 @@
 #!/bin/bash
 
-# Run the Java program and capture the output
-output=$(java CircleCalculator.java < tests/input.txt)
-
-# Expected output
-expected=$(cat tests/output.txt)
-
-# Check if output matches expected
-if [ "$output" == "$expected" ]; then
-  echo "Tests passed"
-  exit 0
-else
-  echo "Tests failed"
-  echo "Expected:"
-  echo "$expected"
-  echo "Got:"
-  echo "$output"
+# Compile the Java program (check for errors)
+javac LoopingStatementsDemo.java
+if [[ $? -ne 0 ]]; then
+  echo "Compilation failed!"
   exit 1
+fi
+
+
+# Run the Java program and capture the output
+output=$(java LoopingStatementsDemo.java < tests/input.txt)
+
+# Expected output (using tr to normalize newlines)
+expected=$(cat tests/output.txt | tr -d '\r') # Remove carriage returns
+
+# Normalize newlines in the actual output as well
+output=$(echo "$output" | tr -d '\r') # Remove carriage returns
+
+
+# Use diff for robust comparison (ignoring whitespace)
+diff -Bw <(echo "$expected") <(echo "$output") > diff.txt
+
+if [ -s diff.txt ]; then
+  echo "Tests failed"
+  echo "Diff:"
+  cat diff.txt
+  rm diff.txt
+  exit 1
+else
+  echo "Tests passed"
+  rm diff.txt
+  exit 0
 fi
