@@ -1,13 +1,5 @@
 #!/bin/bash
 
-# Compile the Java program (check for errors)
-javac LoopingStatementsDemo.java
-if [[ $? -ne 0 ]]; then
-  echo "Compilation failed!"
-  exit 1
-fi
-
-
 # Run the Java program and capture the output
 output=$(java LoopingStatementsDemo.java < tests/input.txt)
 
