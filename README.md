@@ -1,7 +1,7 @@
-# **2025-OBJPROG-LAB009**
+# **2025-OBJPROG-LAB010**
 Week 03-04 - Conditional and Looping Statements
 
-Laboratory # 09 - Guided Coding Exercise 3: Switch Statement
+Laboratory # 10 - Guided Coding Exercise 4: Looping Statements
 
 ## **Instructions**
 
@@ -77,127 +77,167 @@ Only perform this if this is the first time you will setup your Git Environment
 
 ### **Step 3: Complete the Assignment**
 
-**Laboratory # 09 - Guided Coding Exercise 3: Switch Statement**
+**Laboratory # 10 - Guided Coding Exercise 4: Looping Statements**
 
    **Objective:**
-   - Understand boolean literals, variables, and expressions.
-   - Use relational operators (==, !=, >, <, >=, <=) and logical operators (&&, ||, !, ^).
+   - Implement different types of loops to perform repetitive tasks.
+   - Learn to control loop execution using break and continue statements.
 
    **File Naming Convention:**
-   - `BooleanExpressionsDemo.java`
+   - `LoopingStatementsDemo.java`
 
-   **Desired Output (with day = 4 and grade = 'B'):**
+   **Desired Output:**
    ```txt
-   Thursday: Almost there.
-   Good job!
+   While Loop Output:
+   Count: 1
+   Count: 2
+   Count: 3
+   Count: 4
+   Count: 5
+   
+   Do-While Loop Output:
+   Count: 1
+   Count: 2
+   Count: 3
+   Count: 4
+   Count: 5
+   
+   For Loop Output (Even Numbers):
+   Even: 2
+   Even: 4
+   Even: 6
+   Even: 8
+   Even: 10
+   
+   Nested Loops Output (3x3 Grid):
+   * * * 
+   * * * 
+   * * * 
+   
+   Loop with Break and Continue:
+   Number: 1
+   Number: 2
+   Number: 3
+   Number: 4
+   Number: 5
+   Number: 6
+   Number: 8
    ```
 
    **Notable Observations (to be discussed after completing the exercise):**
-   - switch statements are efficient for checking a single variable against multiple discrete values.
-   - break statements are crucial to prevent fall-through.
+   - Observe the differences between while, do-while, and for loops.
+   - Understand how nested loops create patterns.
+   - See how break and continue alter loop flow.
 
    **Java Programming Best Practices:**
-   - Use descriptive variable names.
-   - Comment your code.
-   - Always include break statements (unless fall-through is intended).
-   - Use a default case.
+   - Use descriptive variable names (e.g., counter, row, col).
+   - Comment your code to explain the logic.
+   - Indent code blocks consistently for readability.
       
    **Step-by-Step Instructions:**
 
    1. Setup Class and Main Method
-      - Create a file named `SwitchStatementDemo.java`.
-      - Define the class `SwitchStatementDemo` and its `main` method.
+      - Create a file named `LoopingStatementsDemo.java`.
+      - Define the class `LoopingStatementsDemo` and its `main` method.
       ```Java
-      public class BooleanExpressionsDemo {
+      public class LoopingStatementsDemo {
           public static void main(String[] args) {
       
           }
       }
       ```
             
-   2. Declare Day Variable (Integer)
-   - Inside the main method, declare an integer variable named dayOfWeek.
-   - Initialize dayOfWeek to 4 (representing Thursday).
+   2. While Loop (Numbers 1 to 5)
+      - Declare an integer variable named counter and initialize it to 1.
+      - Print "While Loop Output:".
+      - Write a while loop. The condition should check if counter is less than or equal to 5.
+      - Inside the loop:
+         - Print "Count: " followed by the value of counter.
+         - Increment counter by 1.
       ```Java
-      int dayOfWeek = 4;
-      ```
-
-   3. Switch Statement for Day of the Week
-      - Write a switch statement using dayOfWeek as the expression.
-      - Create case labels for each day of the week (1 to 7).
-      - Inside each case block, print a message related to that day.
-      - Add a break statement at the end of each case block.
-      - Include a default case to handle invalid day numbers.
-      ```Java
-      switch (dayOfWeek) {
-          case 1:
-              System.out.println("Monday: Start of the work week.");
-              break;
-          case 2:
-              System.out.println("Tuesday: Keep going!");
-              break;
-          case 3:
-              System.out.println("Wednesday: Midweek.");
-              break;
-          case 4:
-              System.out.println("Thursday: Almost there.");
-              break;
-          case 5:
-              System.out.println("Friday: Weekend is near.");
-              break;
-          case 6:
-              System.out.println("Saturday: Enjoy your day off!");
-              break;
-          case 7:
-              System.out.println("Sunday: Rest and recharge.");
-              break;
-          default:
-              System.out.println("Invalid day.");
+      int counter = 1;
+      System.out.println("While Loop Output:");
+      while (counter <= 5) {
+          System.out.println("Count: " + counter);
+          counter++;
       }
       ```
 
-   4. Declare Grade Variable (Character)
-      - Declare a character variable named studentGrade.
-      - Initialize studentGrade to 'B'.
+   3. Do-While Loop (Numbers 1 to 5)
+      - Reset counter to 1.
+      - Print "\nDo-While Loop Output:".  ("\n" adds a newline)
+      - Write a do-while loop.
+      - Inside the loop:
+         - Print "Count: " followed by the value of counter.
+         - Increment counter.
+      - The while condition should check if counter is less than or equal to 5.
       ```Java
-      char studentGrade = 'B';
+      counter = 1; // Reset counter
+      System.out.println("\nDo-While Loop Output:");
+      do {
+          System.out.println("Count: " + counter);
+          counter++;
+      } while (counter <= 5);
       ```
 
-   5. Switch Statement for Grade Evaluation
-      - Write a switch statement using studentGrade as the expression.
-      - Create case labels for each letter grade ('A', 'B', 'C', 'D', 'F').
-      - Inside each case block, print a message appropriate for that grade.
-      - Include break statements in each case.
-      - Add a default case for invalid grades.
+   4. For Loop (Even Numbers 2 to 10)
+      - Print "\nFor Loop Output (Even Numbers):".
+      - Write a for loop.
+      - Initialize a loop variable i to 2.
+         - The loop condition should be i <= 10.
+         - Increment i by 2 in each iteration (i += 2).
+      - Inside the loop, print "Even: " followed by the value of i.
       ```Java
-      switch (studentGrade) {
-          case 'A':
-              System.out.println("Excellent!");
-              break;
-          case 'B':
-              System.out.println("Good job!");
-              break;
-          case 'C':
-              System.out.println("Well done!");
-              break;
-          case 'D':
-              System.out.println("You passed.");
-              break;
-          case 'F':
-              System.out.println("Better luck next time.");
-              break;
-          default:
-              System.out.println("Invalid grade.");
+      System.out.println("\nFor Loop Output (Even Numbers):");
+      for (int i = 2; i <= 10; i += 2) {
+          System.out.println("Even: " + i);
       }
       ```
 
-   6. Compile and Run
-       - Save the file as `SwitchStatementDemo.java`.
-       - Compile the code using `javac SwitchStatementDemo.java` in your terminal or command prompt.
-       - Run the compiled code using `java SwitchStatementDemo`.
+   5. Nested Loops (3x3 Grid)
+      - Print "\nNested Loops Output (3x3 Grid):".
+      - Write a for loop (outer loop) that iterates 3 times (for rows).
+      - Inside the outer loop:
+         - Write another for loop (inner loop) that also iterates 3 times (for columns).
+         - Inside the inner loop, print "* " (an asterisk and a space).
+         - After the inner loop (but still within the outer loop), print a newline.
+      ```Java
+      System.out.println("\nNested Loops Output (3x3 Grid):");
+      for (int row = 1; row <= 3; row++) {
+          for (int col = 1; col <= 3; col++) {
+              System.out.print("* ");
+          }
+          System.out.println(); // Newline
+      }
+      ```
+
+   6. Break and Continue
+      - Print "\nLoop with Break and Continue:".
+      - Write a for loop that iterates from 1 to 10.
+      - Inside the loop:
+         - If the loop variable (i) is 7, use continue to skip to the next iteration.
+         - If i is greater than 8, use break to exit the loop.
+         - If neither condition is met, print "Number: " followed by i.
+      ```Java
+      System.out.println("\nLoop with Break and Continue:");
+      for (int i = 1; i <= 10; i++) {
+          if (i == 7) {
+              continue;
+          }
+          if (i > 8) {
+              break;
+          }
+          System.out.println("Number: " + i);
+      }
+      ```
+      
+   7. Compile and Run
+       - Save the file as `LoopingStatementsDemo.java`.
+       - Compile the code using `javac LoopingStatementsDemo.java` in your terminal or command prompt.
+       - Run the compiled code using `java LoopingStatementsDemo`.
 
    **Conclusion**
-   This exercise demonstrates the use of switch statements for multi-conditional selection. switch statements are a clean and efficient way to handle multiple choices based on a single value.  They are particularly useful when dealing with a fixed set of values, improving code readability and maintainability. Remember the importance of break statements and the default case for robust and predictable code.  Consider switch statements as a good alternative to long if-else chains when appropriate.
+   This exercise explored various looping mechanisms and control flow statements in Java.  Loops are fundamental for repetitive tasks, and understanding different loop types and control mechanisms like break and continue is crucial for writing efficient and readable code.  The choice of which loop to use depends on the specific problem and desired outcome.  Always aim for clear, well-commented code that is easy to understand and maintain.
 
 ### **Step 4: Push Changes to GitHub**
 Once you've completed your changes, follow these steps to upload your work to your GitHub repository.
@@ -221,7 +261,7 @@ Once you've completed your changes, follow these steps to upload your work to yo
    Write a meaningful commit message:
    
    ```bash
-   git commit -m "Submitting OBJPROG Week 04 - Session 01 - Exercise 01"
+   git commit -m "Submitting OBJPROG Week 04 - Session 01 - Exercise 04"
    ```
    
 4. Push your changes to GitHub:
